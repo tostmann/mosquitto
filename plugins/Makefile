@@ -3,6 +3,7 @@ DIRS= \
 		deny-protocol-version \
 		dynamic-security \
 		message-timestamp \
+		ic-throttle \
 		payload-modification
 
 .PHONY : all binary check clean reallyclean test install uninstall
