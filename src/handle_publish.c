@@ -281,6 +281,9 @@ int handle__publish(struct mosquitto *context)
 
 			reason_code = MQTT_RC_NOT_AUTHORIZED;
 			goto process_bad_message;
+		}else if(rc == MOSQ_ERR_DISCARD){
+			db__msg_store_free(msg);
+			return MOSQ_ERR_SUCCESS;
 		}else if(rc != MOSQ_ERR_SUCCESS){
 			db__msg_store_free(msg);
 			return rc;
